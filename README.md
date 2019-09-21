@@ -12,7 +12,7 @@ import VueDI from "vue-simple-di";
 import SomeService from "./SomeService";
 
 Vue.use(VueDI);
-Vue.$di.add("some_service", SomeService);
+Vue.$di.add("someService", SomeService);
 ```
 
 ```vue
@@ -24,9 +24,10 @@ Vue.$di.add("some_service", SomeService);
 <script>
 export default {
   // ...
+  inject: ["someService"],
   methods: {
     someMethod() {
-        let service = this.$di.resolve("some_service");
+        const someData = this.someService.getSomeData();
     },
   }
 }
